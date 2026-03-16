@@ -16,19 +16,21 @@ router.get('/login', (req, res) => {
 
 // Member login
 router.post('/login/member', async (req, res) => {
+  //const users = await User.find();
+  //console.log(users)
   const { name, username } = req.body
-
+ console.log(req.body)
   const user = await User.findOne({
     name,
     username,
     role: 'member'
   })
-
+console.log(user);
   if (!user) {
     return res.redirect('/login')
   }
 
-  req.session.username = user._username //check if messed up
+  req.session.userId = user._id //check if messed up
   req.session.role = 'member'
 
   res.redirect('/member')
@@ -53,7 +55,7 @@ router.post('/login/admin', async (req, res) => {
     return res.redirect('/login')
   }
 
-  req.session.username = user._username //check if messed up
+  req.session.userId = user._id //check if messed up
   req.session.role = 'admin'
 
   res.redirect('/admin')

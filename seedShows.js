@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 
-import College from "./models/College.js"
+import Show from "./models/Show.js"
 
 dotenv.config()
 
@@ -9,8 +9,8 @@ await mongoose.connect(process.env.MONGODB_URI)
 console.log("Connected to MongoDB")
 
 
-await College.deleteMany({})
-console.log("Old colleges cleared")
+await Show.deleteMany({})
+console.log("Old shows cleared")
 
 /*name:String,
   description:String,
@@ -19,39 +19,39 @@ console.log("Old colleges cleared")
   comments:String,
   iconPath:String*/
 
-const colleges = [
-    
+const shows = [
+
 {
 name: "Miraculous: Tales of Ladybug and Cat Noir",
 description: "A show about the wonderful adventures of the superheros ladybug and chat noir!",
 watchTime: "55 hours",
-watched: False,
+watched: false,
 comments: "",
-iconPath: "/uploads/collegeIcons/ucla.png"
+iconPath: "/uploads/showIcons/ucla.png"
 },
 
 {
 name: "Miraculous: Tales of Ladybug and Cat Noir",
 description: "A show about the wonderful adventures of the superheros ladybug and chat noir!",
 watchTime: "55 hours",
-watched: False,
+watched: false,
 comments: "",
-iconPath: "/uploads/collegeIcons/ucla.png"
+iconPath: "/uploads/showIcons/ucla.png"
 },
 
 {
 name: "Miraculous: Tales of Ladybug and Cat Noir",
 description: "A show about the wonderful adventures of the superheros ladybug and chat noir!",
 watchTime: "55 hours",
-watched: False,
+watched: false,
 comments: "",
-iconPath: "/uploads/collegeIcons/ucla.png"
+iconPath: "/uploads/showIcons/ucla.png"
 },
 ]
 
 
-await College.insertMany(colleges)
+await Show.insertMany(shows)
 
-console.log("Colleges seeded successfully")
+console.log("Shows seeded successfully")
 
 mongoose.connection.close()
