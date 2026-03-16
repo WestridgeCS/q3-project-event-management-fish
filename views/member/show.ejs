@@ -1,27 +1,27 @@
 <%- include('../partials/header') %>
 
-<div class="college-detail">
-  <h1><%= college.name %></h1>
+<div class="show-detail">
+  <h1><%= show.name %></h1>
   <div class="rep-card">
     <h3>Representative</h3>
-    <p><strong>Name:</strong> <%= college.repName || "Unknown" %></p>
-    <p><strong>Email:</strong> <%= college.repEmail || "N/A" %></p>
-    <p><strong>Website:</strong> <%= college.website || "N/A" %></p>
+    <p><strong>Name:</strong> <%= show.repName || "Unknown" %></p>
+    <p><strong>Email:</strong> <%= show.repEmail || "N/A" %></p>
+    <p><strong>Website:</strong> <%= show.website || "N/A" %></p>
   </div>
 
-  <form method="POST" class="notes-form">
-    <label>Your Notes</label>
-    <textarea name="notes"><%= visit ? visit.notes : "" %></textarea>
+  <form method="POST" class="comments-form">
+    <label>Your Comments</label>
+    <textarea name="comments"><%= comments ? comment.comments : "" %></textarea>
 
     <label class="checkbox">
       <input
       type="checkbox"
-      name="interested"
-      <%= visit && visit.interested ? "checked" : "" %>
-      > Interested in this college
+      name="watched"
+      <%= comment && comment.watched ? "checked" : "" %>
+      > Watched this show!
     </label>
 
-    <button class="btn">Save Notes</button>
+    <button class="btn">Save Comments</button>
   </form>
 </div>
 

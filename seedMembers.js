@@ -9,99 +9,43 @@ await mongoose.connect(process.env.MONGODB_URI)
 
 console.log("Connected to MongoDB")
 
-// Clear existing students
-await User.deleteMany({ role: "student" })
+// Clear existing members
+await User.deleteMany({ role: "member" })
 
-console.log("Old students removed")
+console.log("Old members removed")
 
 
-const students = [
+const members = [
 
 {
   name: "Ava Martinez",
-  studentId: "1001",
+  username: "Ava_isCOOL",
   email: "ava.martinez@westridge.edu",
   passwordHash: null,
-  role: "student"
+  role: "member"
 },
 
 {
   name: "Liam Chen",
-  studentId: "1002",
+  username: "LionMan",
   email: "liam.chen@westridge.edu",
   passwordHash: null,
-  role: "student"
+  role: "member"
 },
 
 {
   name: "Sophia Patel",
-  studentId: "1003",
+  username: "TheFirstEver1st",
   email: "sophia.patel@westridge.edu",
   passwordHash: null,
-  role: "student"
-},
-
-{
-  name: "Noah Thompson",
-  studentId: "1004",
-  email: "noah.thompson@westridge.edu",
-  passwordHash: null,
-  role: "student"
-},
-
-{
-  name: "Isabella Rodriguez",
-  studentId: "1005",
-  email: "isabella.rodriguez@westridge.edu",
-  passwordHash: null,
-  role: "student"
-},
-
-{
-  name: "Ethan Nguyen",
-  studentId: "1006",
-  email: "ethan.nguyen@westridge.edu",
-  passwordHash: null,
-  role: "student"
-},
-
-{
-  name: "Mia Johnson",
-  studentId: "1007",
-  email: "mia.johnson@westridge.edu",
-  passwordHash: null,
-  role: "student"
-},
-
-{
-  name: "Lucas Garcia",
-  studentId: "1008",
-  email: "lucas.garcia@westridge.edu",
-  passwordHash: null,
-  role: "student"
-},
-
-{
-  name: "Charlotte Kim",
-  studentId: "1009",
-  email: "charlotte.kim@westridge.edu",
-  passwordHash: null,
-  role: "student"
-},
-
-{
-  name: "Benjamin Walker",
-  studentId: "1010",
-  email: "benjamin.walker@westridge.edu",
-  passwordHash: null,
-  role: "student"
+  role: "member"
 }
 
 ]
 
 
-await User.insertMany(students)
+await User.insertMany(members)
 
-console.log("Students seeded successfully")
+console.log("Members seeded successfully")
 
 mongoose.connection.close()
