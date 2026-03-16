@@ -14,24 +14,24 @@ router.get('/login', (req, res) => {
   res.render('auth/login')
 })
 
-// Student login
-router.post('/login/student', async (req, res) => {
-  const { name, studentId } = req.body
+// Member login
+router.post('/login/member', async (req, res) => {
+  const { name, username } = req.body
 
   const user = await User.findOne({
     name,
-    studentId,
-    role: 'student'
+    username,
+    role: 'member'
   })
 
   if (!user) {
     return res.redirect('/login')
   }
 
-  req.session.userId = user._id
-  req.session.role = 'student'
+  req.session.username = user._username //check if messed up
+  req.session.role = 'member'
 
-  res.redirect('/student')
+  res.redirect('/member')
 })
 
 // Admin login
@@ -53,7 +53,7 @@ router.post('/login/admin', async (req, res) => {
     return res.redirect('/login')
   }
 
-  req.session.userId = user._id
+  req.session.username = user._username //check if messed up
   req.session.role = 'admin'
 
   res.redirect('/admin')

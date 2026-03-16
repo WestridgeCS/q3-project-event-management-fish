@@ -5,7 +5,7 @@ import session from 'express-session';
 import flash from 'connect-flash';
 
 import authRoutes from "./routes/authRoutes.js"
-import studentRoutes from "./routes/studentRoutes.js"
+import memberRoutes from "./routes/memberRoutes.js"
 import adminRoutes from "./routes/adminRoutes.js"
 
 import attachUser from './middleware/attachUser.js';
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 // Static files
 app.use(express.static('static'));
 
-// Allow uploaded college icons to be served
+// Allow uploaded show icons to be served
 app.use('/uploads', express.static('uploads'));
 
 // EJS
@@ -42,10 +42,10 @@ app.use(attachUser);
 
 // Routes
 app.use("/",authRoutes)
-app.use("/student",studentRoutes)
+app.use("/member",memberRoutes)
 app.use("/admin",adminRoutes)
 
-// Basic error handler (so students see something helpful)
+// Basic error handler (so members see something helpful)
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({

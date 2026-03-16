@@ -1,41 +1,38 @@
 <%- include('../partials/header') %>
 
-<h1>Edit College</h1>
+<h1>Edit Show</h1>
 
 <p class="subtitle">
-Update college details and contact information.
+Update show details and contact information.
 </p>
 
 <div class="card">
-  <form method="POST" action="/admin/colleges/<%= college._id %>" enctype="multipart/form-data">
-    <label>College Name</label>
-    <input name="name" value="<%= college.name %>" required>
+  <form method="POST" action="/admin/shows/<%= show._username %>" enctype="multipart/form-data">
+    <label>Show Name</label>
+    <input name="name" value="<%= show.name %>" required>
 
-    <label>Representative Name</label>
-    <input name="repName" value="<%= college.repName %>">
+    <label>Description</label>
+    <input name="description" value="<%= show.description %>">
 
-    <label>Representative Email</label>
-    <input name="repEmail" value="<%= college.repEmail %>">
+    <label>Has the club watched it? </label>
+    <input name="watched" value="<%= show.watched %>" type="checkbox">
 
-    <label>Representative Phone</label>
-    <input name="repPhone" value="<%= college.repPhone %>">
+    <label>Watch Time</label>
+    <input name="watchTime" value="<%= show.watchTime %>">
 
-    <label>Website</label>
-    <input name="website" value="<%= college.website %>">
+    <label>Comments</label>
+    <textarea name="comments"><%= show.comments %></textarea>
 
-    <label>Notes</label>
-    <textarea name="notes"><%= college.notes %></textarea>
-
-    <label>College Logo</label>
-    <% if (college.iconPath) { %>
+    <label>Show Thumbnail</label>
+    <% if (show.iconPath) { %>
     <div class="logo-preview">
-      <img src="<%= college.iconPath %>" class="college-logo">
+      <img src="<%= show.iconPath %>" class="show-logo">
     </div>
     <% } %>
 
     <input type="file" name="icon">
 
-    <button class="btn">Update College</button>
+    <button class="btn">Update Show</button>
   </form>
 
 </div>

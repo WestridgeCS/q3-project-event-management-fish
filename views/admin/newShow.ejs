@@ -1,35 +1,35 @@
 <%- include('../partials/header') %>
 
-<h1>Add New College</h1>
+<h1>Add New Show</h1>
 
 <p class="subtitle">
-Create a new college entry for the campus event.
+Create a new show entry for the club.
 </p>
 
 <div class="card">
-  <form method="POST" action="/admin/colleges" enctype="multipart/form-data">
-    <label>College Name</label>
+  <form method="POST" action="/admin/show" enctype="multipart/form-data">
+    <label>Show Name</label>
     <input name="name" required>
 
-    <label>Representative Name</label>
-    <input name="repName">
+    <label>Show Name</label>
+    <input name="name" value="<%= show.name %>" required>
 
-    <label>Representative Email</label>
-    <input name="repEmail">
+    <label>Description</label>
+    <input name="description" value="<%= show.description %>">
 
-    <label>Representative Phone</label>
-    <input name="repPhone">
+    <label>Has the club watched it? </label>
+    <input name="watched" value="<%= show.watched %>" type="checkbox">
 
-    <label>Website</label>
-    <input name="website" placeholder="https://example.edu">
+    <label>Watch Time</label>
+    <input name="watchTime" value="<%= show.watchTime %>">
 
-    <label>Notes</label>
-    <textarea name="notes"></textarea>
+    <label>Comments</label>
+    <textarea name="comments"><%= show.comments %></textarea>
 
-    <label>College Logo</label>
+    <label>Show Thumbnail</label>
     <input type="file" name="icon">
 
-    <button class="btn">Create College</button>
+    <button class="btn">Create Show</button>
   </form>
 </div>
 

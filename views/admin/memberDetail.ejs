@@ -1,21 +1,21 @@
 <%- include('../partials/header') %>
 
-<h1><%= student.name %></h1>
+<h1><%= member.name %></h1>
 <table class="table">
   <tr>
-    <th>College</th>
-    <th>Interested</th>
-    <th>Notes</th>
+    <th>Show</th>
+    <th>Watched</th>
+    <th>Comments</th>
   </tr>
-  <% visits.forEach(v => { %>
+  <% comments.forEach(c => { %>
   <tr>
-    <td><%= v.college.name %></td>
+    <td><%= c.show.name %></td>
     <td>
-      <% if (v.interested) { %>
+      <% if (c.watched) { %>
       ⭐
       <% } %>
     </td>
-    <td><%= v.notes %></td>
+    <td><%= c.comments %></td>
   </tr>
   <% }) %>
 </table>

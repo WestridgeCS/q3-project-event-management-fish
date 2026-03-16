@@ -1,8 +1,9 @@
+//make annika replace all logos with show covers
 import https from "https"
 import fs from "fs"
 import path from "path"
 
-const folder = "./uploads/collegeIcons"
+const folder = "./uploads/showIcons"
 
 if (!fs.existsSync(folder)) {
   fs.mkdirSync(folder, { recursive: true })
