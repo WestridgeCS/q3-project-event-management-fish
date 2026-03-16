@@ -1,68 +1,68 @@
 import express from 'express'
 
-import College from '../models/College.js'
-import Visit from '../models/Visit.js'
+import show from '../models/Show.js'
+import comment from '../models/Comment.js'
 
 import requireLogin from '../middleware/requireLogin.js'
 
 const router = express.Router()
 
 
-// Student dashboard
+// Member dashboard
 router.get('/', requireLogin, async (req, res) => {
-  const colleges = await College.find()
-  res.render('student/dashboard', { colleges })
+  const shows = await show.find()
+  res.render('member/dashboard', { shows })
 })
 
-// View college page
-router.get('/college/:id', requireLogin, async (req, res) => {
-  const college = await College.findById(req.params.id)
+// View show page
+router.get('/show/:id', requireLogin, async (req, res) => {
+  const shows = await Show.findById(req.params.id)
 
-  const visit = await Visit.findOne({
-    student: req.session.userId,
-    college: req.params.id
+  const comment = await comment.findOne({
+    member: req.session.username,
+    show: req.params.id
   })
 
-  res.render('student/college', {
-    college,
-    visit
+  res.render('member/show', {
+    shows,
+    comment
   })
 
 })
 
 
-// Save visit notes
-router.post('/college/:id', requireLogin, async (req, res) => {
-  const { notes, interested } = req.body
+// Save comment notes
+router.post('/show/:id', requireLogin, async (req, res) => {
+  const { comments, watched } = req.body
 
-  let visit = await Visit.findOne({
-    student: req.session.userId,
-    college: req.params.id
+  let comment = await comment.findOne({
+    member: req.session.username,
+    show: req.params.id
   })
 
-  if (!visit) {
-    visit = new Visit({
-      student: req.session.userId,
-      college: req.params.id
+  if (!comment) {
+    comment = new comment({
+      member: req.session.username,
+      show: req.params.id
     })
   }
 
-  visit.notes = notes
-  visit.interested = interested === 'on'
+  comment.comments = comments
+  comment.watched = watched === 'on'
 
-  await visit.save()
+  await comment.save()
 
-  res.redirect('/student')
+  res.redirect('/member')
 })
 
-// Student profile page
+// Member profile page
 router.get('/profile', requireLogin, async (req, res) => {
-  const visits = await Visit
-    .find({ student: req.session.userId })
-    .populate('college')
+  const comments = await comment
+    .find({ member: req.session.username })
+    .populate('show')
 
-  res.render('student/profile', {
-    visits
+  res.render('member/profile', {
+    comments
   })
 })
 

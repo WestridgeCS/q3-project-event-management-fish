@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Campus Event Manager</title>
+  <title>Show manager</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <header class="topbar">
   <div class="logo">
-    🎓 Campus Event Manager
+    Show manager
   </div>
   <nav>
     <% if (currentUser) { %>
-      <% if (role === "student") { %>
-        <a href="/student">Dashboard</a>
-        <a href="/student/profile">My Colleges</a>
+      <% if (role === "member") { %>
+        <a href="/member">Dashboard</a>
+        <a href="/member/profile">My Shows</a>
       <% } %>
 
       <% if (role === "admin") { %>

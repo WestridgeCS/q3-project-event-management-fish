@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
-<h1>College Fair</h1>
+<h1>Movie Club</h1>
 
 <p class="subtitle">
-Click a college to add notes and mark your interest.
+Click a show to add comments and mark it off your watch list. 
 </p>
 
-<div class="college-grid">
-  <% colleges.forEach(college => { %>
-  <a href="/student/college/<%= college._id %>">
-    <div class="college-card">
-      <% if (college.iconPath) { %>
-      <img src="<%= college.iconPath %>" class="college-logo">
+<div class="show-grid">
+  <% shows.forEach(show => { %>
+  <a href="/student/show/<%= show._id %>">
+    <div class="show-card">
+      <% if (show.iconPath) { %>
+      <img src="<%= show.iconPath %>" class="show-logo">
       <% } else { %>
 
       <div class="placeholder-logo">
@@ -18,7 +18,7 @@ Click a college to add notes and mark your interest.
       </div>
       <% } %>
 
-      <h3><%= college.name %></h3>
+      <h3><%= show.name %></h3>
     </div>
   </a>
   <% }) %>
