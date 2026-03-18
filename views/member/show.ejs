@@ -3,10 +3,10 @@
 <div class="show-detail">
   <h1><%= show.name %></h1>
   <div class="rep-card">
-    <h3>Representative</h3>
-    <p><strong>Name:</strong> <%= show.repName || "Unknown" %></p>
-    <p><strong>Email:</strong> <%= show.repEmail || "N/A" %></p>
-    <p><strong>Website:</strong> <%= show.website || "N/A" %></p>
+    <h3>Stats</h3>
+    <p><strong>Name:</strong> <%= show.name || "Unknown" %></p>
+    <p><strong>Watch time:</strong> <%= show.watchTime || "N/A" %></p>
+    <p><strong>Description:</strong> <%= show.description || "N/A" %></p>
   </div>
 
   <form method="POST" class="comments-form">
@@ -23,6 +23,9 @@
 
     <button class="btn">Save Comments</button>
   </form>
+</div>
+
+<div> 
 </div>
   
 <%- include('../partials/footer') %>
