@@ -30,7 +30,7 @@ console.log(user);
     return res.redirect('/login')
   }
 
-  req.session.userId = user._id //check if messed up
+  req.session.userId = user._id
   req.session.role = 'member'
 
   res.redirect('/member')
@@ -52,10 +52,11 @@ router.post('/login/admin', async (req, res) => {
   const valid = await bcrypt.compare(password, user.passwordHash)
 
   if (!valid) {
-    return res.redirect('/login')
+    console.log("Incorrect login");
+    return res.redirect('/login');
   }
 
-  req.session.userId = user._id //check if messed up
+  req.session.userId = user._id
   req.session.role = 'admin'
 
   res.redirect('/admin')
