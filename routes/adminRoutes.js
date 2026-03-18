@@ -44,7 +44,7 @@ router.get('/members', requireLogin, requireAdmin, async (req, res) => {
 
   for (let member of members) {
     const comments = await Comment
-      .find({ member: member._username })//check if messed up
+      .find({ member: member._id })
       .populate('show')
 
     const watched = comments.filter(c => c.interested)
