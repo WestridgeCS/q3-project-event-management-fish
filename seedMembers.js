@@ -10,8 +10,7 @@ await mongoose.connect(process.env.MONGODB_URI)
 console.log("Connected to MongoDB")
 
 // Clear existing members
-await User.deleteMany({ role: "member" })
-
+await User.deleteMany()
 console.log("Old members removed")
 
 

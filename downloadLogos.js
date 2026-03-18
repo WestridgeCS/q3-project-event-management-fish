@@ -12,7 +12,7 @@ if (!fs.existsSync(folder)) {
 const logos = [
   {
     name: "ucla",
-    url: "https://upload.wikimedia.org/wikipedia/commons/7/7a/UCLA_Bruins_script.svg"
+    url: "https://www.bing.com/images/search?view=detailV2&ccid=ejIBDCxh&id=A83BA814C37AC7878EF538740E715D2CF990117E&thid=OIP.ejIBDCxh9rFzQm_1YSBjJwHaEK&mediaurl=https%3a%2f%2fvignette.wikia.nocookie.net%2flady-bug%2fimages%2f4%2f4a%2fTSE_(54).png%2frevision%2flatest%3fcb%3d20170505144921&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.7a32010c2c61f6b173426ff561206327%3frik%3dfhGQ%252bSxdcQ50OA%26pid%3dImgRaw%26r%3d0&exph=1080&expw=1920&q=miraculous+ladybug&FORM=IRPRST&ck=ABC1144A59D776DFE87F84BA87CF2047&selectedIndex=12&itb=0"
   },
   {
     name: "usc",
