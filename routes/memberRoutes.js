@@ -1,7 +1,7 @@
 import express from 'express'
 
-import show from '../models/Show.js'
-import comment from '../models/Comment.js'
+import Show from '../models/Show.js'
+import Comment from '../models/Comment.js'
 
 import requireLogin from '../middleware/requireLogin.js'
 
@@ -10,22 +10,22 @@ const router = express.Router()
 
 // Member dashboard
 router.get('/', requireLogin, async (req, res) => {
-  const shows = await show.find()
+  const shows = await Show.find()
   res.render('member/dashboard', { shows })
 })
 
 // View show page
 router.get('/show/:id', requireLogin, async (req, res) => {
-  const shows = await Show.findById(req.params.id)
+  const show = await Show.findById(req.params.id)
 
-  const comment = await comment.findOne({
+  const comments = await Comment.findOne({
     member: req.session.username,
     show: req.params.id
   })
 
   res.render('member/show', {
-    shows,
-    comment
+    show,
+    comments
   })
 
 })
@@ -35,13 +35,13 @@ router.get('/show/:id', requireLogin, async (req, res) => {
 router.post('/show/:id', requireLogin, async (req, res) => {
   const { comments, watched } = req.body
 
-  let comment = await comment.findOne({
+  let comment = await Comment.findOne({
     member: req.session.username,
     show: req.params.id
   })
 
   if (!comment) {
-    comment = new comment({
+    comment = new Comment({
       member: req.session.username,
       show: req.params.id
     })
@@ -57,7 +57,7 @@ router.post('/show/:id', requireLogin, async (req, res) => {
 
 // Member profile page
 router.get('/profile', requireLogin, async (req, res) => {
-  const comments = await comment
+  const comments = await Comment
     .find({ member: req.session.username })
     .populate('show')
 

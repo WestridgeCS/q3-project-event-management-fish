@@ -11,18 +11,18 @@
 
   <form method="POST" class="comments-form">
     <label>Your Comments</label>
-    <textarea name="comments"><%= comments ? comment.comments : "" %></textarea>
+    <textarea name="comments"><%= comments ? comments.comments : "" %></textarea>
 
     <label class="checkbox">
       <input
       type="checkbox"
       name="watched"
-      <%= comment && comment.watched ? "checked" : "" %>
+      <%= comments && comments.watched ? "checked" : "" %>
       > Watched this show!
     </label>
 
     <button class="btn">Save Comments</button>
   </form>
 </div>
-
+  
 <%- include('../partials/footer') %>
