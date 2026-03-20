@@ -31,33 +31,19 @@ iconPath: "/uploads/showIcons/ucla.png"
 },
 
 {
-<<<<<<< HEAD
 name: "My Little Pony",
 description: "A super awesome adveture about friendship with the most awesome group of ponies minus fluttershy",
 watchTime: "156 hours",
 watched: False,
-=======
-name: "Miraculous: Tales of Ladybug and Cat Noir",
-description: "A show about the wonderful adventures of the superheros ladybug and chat noir!",
-watchTime: "55 hours",
-watched: false,
->>>>>>> a385a351c096ef286d26e8b03e0449b0e9674fe3
 comments: "",
 iconPath: "/uploads/showIcons/ucla.png"
 },
 
 {
-<<<<<<< HEAD
 name: "Peppa Pig",
 description: "Pigs and others doing what pigs do best!",
 watchTime: "208 hours",
 watched: False,
-=======
-name: "Miraculous: Tales of Ladybug and Cat Noir",
-description: "A show about the wonderful adventures of the superheros ladybug and chat noir!",
-watchTime: "55 hours",
-watched: false,
->>>>>>> a385a351c096ef286d26e8b03e0449b0e9674fe3
 comments: "",
 iconPath: "/uploads/showIcons/ucla.png"
 },

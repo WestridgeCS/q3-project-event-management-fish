@@ -25,20 +25,12 @@ router.post('/login/member', async (req, res) => {
     username,
     role: 'member'
   })
-<<<<<<< HEAD
-console.log(user)
-=======
-console.log(user);
->>>>>>> a385a351c096ef286d26e8b03e0449b0e9674fe3
+  
   if (!user) {
     return res.redirect('/login')
   }
 
-<<<<<<< HEAD
-  req.session.userId = user._id //check if messed up
-=======
-  req.session.userId = user._id
->>>>>>> a385a351c096ef286d26e8b03e0449b0e9674fe3
+  req.session.userId = user._id 
   req.session.role = 'member'
   console.log(req.session)
   res.redirect('/member')
