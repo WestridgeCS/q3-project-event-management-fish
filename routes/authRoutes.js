@@ -19,7 +19,6 @@ router.post('/login/member', async (req, res) => {
   //const users = await User.find();
   //console.log(users)
   const { name, username } = req.body
-
  console.log(req.body)
   const user = await User.findOne({
     name,
@@ -65,7 +64,6 @@ router.post('/login/admin', async (req, res) => {
     return res.redirect('/login');
   }
 
-  req.session.username = user._username //check if messed up
   req.session.userId = user._id
   req.session.role = 'admin'
 
