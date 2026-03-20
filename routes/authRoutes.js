@@ -16,19 +16,30 @@ router.get('/login', (req, res) => {
 
 // Member login
 router.post('/login/member', async (req, res) => {
+  //const users = await User.find();
+  //console.log(users)
   const { name, username } = req.body
 
+ console.log(req.body)
   const user = await User.findOne({
     name,
     username,
     role: 'member'
   })
+<<<<<<< HEAD
 console.log(user)
+=======
+console.log(user);
+>>>>>>> a385a351c096ef286d26e8b03e0449b0e9674fe3
   if (!user) {
     return res.redirect('/login')
   }
 
+<<<<<<< HEAD
   req.session.userId = user._id //check if messed up
+=======
+  req.session.userId = user._id
+>>>>>>> a385a351c096ef286d26e8b03e0449b0e9674fe3
   req.session.role = 'member'
   console.log(req.session)
   res.redirect('/member')
@@ -50,10 +61,12 @@ router.post('/login/admin', async (req, res) => {
   const valid = await bcrypt.compare(password, user.passwordHash)
 
   if (!valid) {
-    return res.redirect('/login')
+    console.log("Incorrect login");
+    return res.redirect('/login');
   }
 
   req.session.username = user._username //check if messed up
+  req.session.userId = user._id
   req.session.role = 'admin'
 
   res.redirect('/admin')

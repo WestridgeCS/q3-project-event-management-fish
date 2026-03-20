@@ -11,6 +11,10 @@ console.log("Connected to MongoDB")
 
 // Clear existing members
 await User.deleteMany()
+<<<<<<< HEAD
+=======
+
+>>>>>>> a385a351c096ef286d26e8b03e0449b0e9674fe3
 console.log("Old members removed")
 
 

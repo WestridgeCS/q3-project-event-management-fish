@@ -7,7 +7,7 @@ Click a show to add comments and mark it off your watch list.
 
 <div class="show-grid">
   <% shows.forEach(show => { %>
-  <a href="/student/show/<%= show._id %>">
+  <a href="/member/show/<%= show._id %>">
     <div class="show-card">
       <% if (show.iconPath) { %>
       <img src="<%= show.iconPath %>" class="show-logo">

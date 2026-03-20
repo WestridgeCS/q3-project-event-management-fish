@@ -7,24 +7,25 @@ Create a new show entry for the club.
 </p>
 
 <div class="card">
-  <form method="POST" action="/admin/show" enctype="multipart/form-data">
+  <form method="POST" action="/admin/shows" enctype="multipart/form-data">
     <label>Show Name</label>
     <input name="name" required>
 
-    <label>Show Name</label>
-    <input name="name" value="<%= show.name %>" required>
-
     <label>Description</label>
-    <input name="description" value="<%= show.description %>">
+    <input name="description">
 
-    <label>Has the club watched it? </label>
-    <input name="watched" value="<%= show.watched %>" type="checkbox">
+    <label>Has the club watched it?</label>
+    <input type="radio" id="watched" name="watched" value="watched">
+    <label for="watched">Watched</label><br>
+
+    <input type="radio" id="notWatched" name="watched" value="not watched">
+    <label for="notWatched">Not Watched</label><br>
 
     <label>Watch Time</label>
-    <input name="watchTime" value="<%= show.watchTime %>">
+    <input name="watchTime">
 
     <label>Comments</label>
-    <textarea name="comments"><%= show.comments %></textarea>
+    <textarea name="comments"></textarea>
 
     <label>Show Thumbnail</label>
     <input type="file" name="icon">
