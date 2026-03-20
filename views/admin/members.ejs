@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<h1>Member Engagement</h1>
+<table class="table">
+  <tr>
+    <th>Member</th>
+    <th>Comments Made</th>
+    <th>Watched Shows</th>
+  </tr>
+
+  <% data.forEach(row => { %>
+  <tr>
+    <td>
+      <a href="/admin/members/<%= row.member._id %>">
+      <%= row.member.name %>
+      </a>
+    </td>
+    <td><%= row.commentCount %></td>
+    <td>
+      <% row.watched.forEach(v => { %>
+      <span class="tag">
+      <%= v.show.name %>
+      </span>
+      <% }) %>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+
+<%- include('../partials/footer') %>

@@ -1,14 +1,16 @@
+<!--THIS ONE MAY BE MESSED UP CHECK USERNAME IT WAS STUDENTID-->
+
 <%- include('../partials/header') %>
-<h1>Login</h1>
+<h1>Welcome to the login page!</h1>
 <div class="login-grid">
   <div class="card">
-    <h2>Student Login</h2>
-    <form method="POST" action="/login/student">
+    <h2>Member Login</h2>
+    <form method="POST" action="/login/member">
       <label>Name</label>
       <input name="name" required>
 
-      <label>Student ID</label>
-      <input name="studentId" required>
+      <label>Username</label>
+      <input name="username" required>
 
       <button class="btn">Login</button>
     </form>

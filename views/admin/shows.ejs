@@ -1,15 +1,15 @@
 <%- include('../partials/header') %>
 
 <div class="admin-toolbar">
-  <h1>Colleges</h1>
+  <h1>Shows</h1>
   <div>
     <input
-      id="collegeSearch"
-      placeholder="Search colleges..."
+      id="showSearch"
+      placeholder="Search shows..."
       class="search-input"
     />
-    <a href="/admin/colleges/new" class="btn-add">
-    + Add College
+    <a href="/admin/shows/new" class="btn-add">
+    + Add Show
     </a>
   </div>
 </div>
@@ -17,15 +17,15 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Logo</th>
+      <th>Thumbnail</th>
       <th>Name</th>
-      <th>Representative</th>
-      <th>Email</th>
+      <th>Descritpion</th>
+      <th>WatchTime</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% colleges.forEach(c => { %>
+    <% shows.forEach(c => { %>
     <tr data-name="<%= c.name.toLowerCase() %>">
       <td>
         <% if (c.iconPath) { %>
@@ -35,16 +35,16 @@
         <% } %>
       </td>
       <td><strong><%= c.name %></strong></td>
-      <td><%= c.repName || "-" %></td>
-      <td><%= c.repEmail || "-" %></td>
+      <td><%= c.description || "-" %></td>
+      <td><%= c.watchTime || "-" %></td>
       <td>
-        <a href="/admin/colleges/<%= c._id %>/edit"
+        <a href="/admin/shows/<%= c._id %>/edit"
         class="btn-small btn-edit">
         Edit
         </a>
 
         <form method="POST"
-        action="/admin/colleges/<%= c._id %>/delete"
+        action="/admin/shows/<%= c._id %>/delete"
         style="display:inline">
           <button class="btn-small btn-delete">
           Delete

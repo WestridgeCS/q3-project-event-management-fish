@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<div class="show-detail">
+  <h1><%= show.name %></h1>
+  <div class="rep-card">
+    <h3>Stats</h3>
+    <p><strong>Name:</strong> <%= show.name || "Unknown" %></p>
+    <p><strong>Watch time:</strong> <%= show.watchTime || "N/A" %></p>
+    <p><strong>Description:</strong> <%= show.description || "N/A" %></p>
+  </div>
+
+  <form method="POST" class="comments-form">
+    <label>Your Comments</label>
+    <textarea name="comments"><%= comments ? comments.comments : "" %></textarea>
+
+    <label class="checkbox">
+      <input
+      type="checkbox"
+      name="watched"
+      <%= comments && comments.watched ? "checked" : "" %>
+      > Watched this show!
+    </label>
+
+    <button class="btn">Save Comments</button>
+  </form>
+</div>
+
+<div> 
+</div>
+  
+<%- include('../partials/footer') %>

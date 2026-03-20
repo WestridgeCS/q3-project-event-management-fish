@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Show</h1>
+
+<p class="subtitle">
+Update show details and contact information.
+</p>
+
+<div class="card">
+  <form method="POST" action="/admin/shows/<%= show._username %>" enctype="multipart/form-data">
+    <label>Show Name</label>
+    <input name="name" value="<%= show.name %>" required>
+
+    <label>Description</label>
+    <input name="description" value="<%= show.description %>">
+
+    <label>Has the club watched it? </label>
+    <input name="watched" value="<%= show.watched %>" type="checkbox">
+
+    <label>Watch Time</label>
+    <input name="watchTime" value="<%= show.watchTime %>">
+
+    <label>Comments</label>
+    <textarea name="comments"><%= show.comments %></textarea>
+
+    <label>Show Thumbnail</label>
+    <% if (show.iconPath) { %>
+    <div class="logo-preview">
+      <img src="<%= show.iconPath %>" class="show-logo">
+    </div>
+    <% } %>
+
+    <input type="file" name="icon">
+
+    <button class="btn">Update Show</button>
+  </form>
+
+</div>
+
+<%- include('../partials/footer') %>

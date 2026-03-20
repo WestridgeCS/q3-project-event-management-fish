@@ -2,12 +2,12 @@ import mongoose from "mongoose"
 
 const userSchema = new mongoose.Schema({
   name:String,
-  studentId:String,
+  username:String,
   email:String,
   passwordHash:String,
   role:{
     type:String,
-    enum:["student","admin"]
+    enum:["member","admin"]
   }
 })
 

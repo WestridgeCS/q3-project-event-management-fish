@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<h1>My Show Watches</h1>
+
+<p class="subtitle">
+Here are the shows you have watched and your comments.
+</p>
+
+<% if (comments.length === 0) { %>
+  <div class="card">
+  You haven't added comments to any shows yet.
+  </div>
+
+<% } else { %>
+  <table class="table">
+    <tr>
+      <th>Show</th>
+      <th>Watched</th>
+      <th>Comments</th>
+    </tr>
+
+    <% comments.forEach(v => { %>
+    <tr>
+      <td>
+        <a href="/member/show/<%= v.show._id %>">
+        <%= v.show.name %>
+        </a>
+      </td>
+      <td>
+        <% if (v.watched) { %>
+        ⭐
+        <% } else { %>
+        —
+        <% } %>
+      </td>
+      <td><%= v.comments || "No comments" %></td>
+    </tr>
+    <% }) %>
+  </table>
+<% } %>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<h1><%= member.name %></h1>
+<table class="table">
+  <tr>
+    <th>Show</th>
+    <th>Watched</th>
+    <th>Comments</th>
+  </tr>
+  <% comments.forEach(c => { %>
+  <tr>
+    <td><%= c.show.name %></td>
+    <td>
+      <% if (c.watched) { %>
+      ⭐
+      <% } %>
+    </td>
+    <td><%= c.comments %></td>
+  </tr>
+  <% }) %>
+</table>
+
+<%- include('../partials/footer') %>

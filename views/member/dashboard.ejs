@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+<h1>Movie Club</h1>
+
+<p class="subtitle">
+Click a show to add comments and mark it off your watch list. 
+</p>
+
+<div class="show-grid">
+  <% shows.forEach(show => { %>
+  <a href="/member/show/<%= show._id %>">
+    <div class="show-card">
+      <% if (show.iconPath) { %>
+      <img src="<%= show.iconPath %>" class="show-logo">
+      <% } else { %>
+
+      <div class="placeholder-logo">
+        🎓
+      </div>
+      <% } %>
+
+      <h3><%= show.name %></h3>
+    </div>
+  </a>
+  <% }) %>
+</div>
+
+<%- include('../partials/footer') %>
